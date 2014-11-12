@@ -1,0 +1,93 @@
+<html>
+<head>
+	<title>Weird Wide Web</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic,900italic" rel="stylesheet" type="text/css">
+	<style>
+		html, body{
+			font-family:"Lato",sans-serif;
+			width:100%;
+			height:100%;
+			padding:0px;
+			margin:0px;
+			background-color:#f6f6f6;
+			color:#555459;
+			display:flex;
+		}
+		#title{
+			margin:auto;
+			font-size:70px;
+			font-weight:900;
+			text-align:center;
+		}
+		body > div{
+			margin:auto;
+			text-align:center;
+		}
+		img{
+			margin:auto;
+			display:block;
+		}
+
+		#absolute{
+			display:flex;
+			position:absolute;
+			width:628px;
+			height:262px;
+		}
+		#absolute div{
+			flex:1;
+		}
+		#absolute div:hover{
+			border-bottom:5px solid #555459;
+			border-top:5px solid #555459;
+		}
+		#absolute .geek{
+			flex:1.4;
+		}
+		#absolute  .mundie{
+			flex:0.9;
+		}
+		#absolute .punk{
+			flex:0.8;
+		}
+		#absolute .goth{
+			flex:1.2
+		}
+		p{
+			height:120px;
+			width:628px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h1 id="title">Weird Wide Web</h1>
+		<h1>Choose Your Race Carefully</h1>
+		<div id="absolute">
+			<div class="geek"></div>
+			<div class="hipster"></div>
+			<div class="punk"></div>
+			<div class="mundie"></div>
+			<div class="half-troll"></div>
+			<div class="goth"></div>
+		</div>
+		<img src="Races.png"></img>
+		<p></p>
+	</div>
+	<script>
+		var p = document.querySelector('p');
+		var a = document.querySelector('#absolute');
+		var text = ["<h1>Geek</h1>Like dwarves, focussed on a task and a theme to the exclusion of all else. There are many different kinds of Geeks: Music Geeks, Programming Geeks, Gaming Geeks. All can be distinguished by their long attention spans on the subject of their interest, and their complete disinterest (to the point of rudeness) for anything else.","<h1>Hipster</h1>The elf of The Web world, focussed on style over substance. It's all about who they know, not what they know.","<h1>Punk</h1>","<h1>Mundie</h1>Well-rounded humans, who might want to go home to their families at 5pm, or even have friends outside of work.","<h1>Half-troll</h1>Half-trolls are perfectionists who don't tolerate fools or sloppy thinking. They are cantankerous and can be hard to work with, but they are usually right and are valuable on a team, especially when dealing with tricky situations like security or internationalization.","<h1>Goth</h1>"]
+		var array = [];
+		for(var i in a.children){
+			array.push(a.children[i])
+			a.children[i].onmouseenter = function(){
+				var index = array.indexOf(this);
+				p.innerHTML = text[index];
+			}
+		}
+	</script>
+</body>
+</html>
